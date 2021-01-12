@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import Logo from './Logo';
 
 const NavStyles = styled.nav`
   margin-bottom: 3rem;
@@ -14,7 +15,6 @@ const NavStyles = styled.nav`
     grid-template-columns: 1fr 1fr auto 1fr 1fr;
     grid-gap: 2rem;
     align-items: center;
-    margin-top: -6rem;
   }
 
   li {
@@ -61,7 +61,9 @@ export default function Nav() {
           <Link to="/pizzas/">Pizza Menu</Link>
         </li>
         <li>
-          <Link to="/">LOGO</Link>
+          <Link to="/">
+            <Logo />
+          </Link>
         </li>
         <li>
           <Link to="/slicemasters">SliceMasters</Link>
