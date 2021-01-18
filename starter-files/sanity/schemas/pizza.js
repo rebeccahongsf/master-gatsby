@@ -40,5 +40,29 @@ export default {
       validation: (Rule) => Rule.min(1000).max(50000),
       // TODO: Add custom input component
     },
+    {
+      name: 'toppings',
+      title: 'Toppings',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'topping' }] }],
+    },
   ],
+  preview: {
+    select: {
+      title: 'name',
+      media: 'image',
+      toppings0: 'toppings.0.name',
+      toppings1: 'toppings.1.name',
+      toppings2: 'toppings.2.name',
+      toppings3: 'toppings.3.name',
+    },
+    prepare: ({ title, media, ...toppings }) => {
+      const tops = Object.values(toppings).filter(Boolean);
+      return {
+        title,
+        media,
+        subtitle: Object.values(tops).join(', '),
+      };
+    },
+  },
 };
